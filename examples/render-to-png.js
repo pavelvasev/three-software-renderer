@@ -27,7 +27,7 @@ mesh.rotation.x += 0.5;
 mesh.rotation.y += 0.6;
 
 // Render into pixels-array (RGBA)
-const renderer = new SoftwareRenderer();
+const renderer = new SoftwareRenderer( {canvas: {width,height}} );
 renderer.setSize(width, height);
 var imagedata = renderer.render(scene, camera);
 
