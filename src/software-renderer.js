@@ -121,6 +121,7 @@ module.exports = function (parameters) {
     data = imagedata.data;
 
     zbuffer = new Int32Array(data.length / 4);
+    imagedata.zbuffer = zbuffer
 
     numBlocks = canvasWBlocks * canvasHBlocks;
     blockMaxZ = new Int32Array(numBlocks);
@@ -355,6 +356,8 @@ module.exports = function (parameters) {
     data = imagedata.data;
 
     zbuffer = new Int32Array(data.length / 4);
+    // add zbuffer to imagedata
+    imagedata.zbuffer = zbuffer
 
     numBlocks = canvasWBlocks * canvasHBlocks;
     blockMaxZ = new Int32Array(numBlocks);
