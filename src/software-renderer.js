@@ -121,6 +121,7 @@ module.exports = function (parameters) {
     data = imagedata.data;
 
     zbuffer = new Int32Array(data.length / 4);
+    imagedata.zbuffer = zbuffer
 
     numBlocks = canvasWBlocks * canvasHBlocks;
     blockMaxZ = new Int32Array(numBlocks);
@@ -299,6 +300,9 @@ module.exports = function (parameters) {
     }
 
     finishClear();
+    //renderData.elements.length = 0
+    // cleanup projector: gc need this
+    projector = new Projector.Projector();
 
     var x = Math.min(rectx1, prevrectx1);
     var y = Math.min(recty1, prevrecty1);
@@ -355,6 +359,8 @@ module.exports = function (parameters) {
     data = imagedata.data;
 
     zbuffer = new Int32Array(data.length / 4);
+    // add zbuffer to imagedata
+    imagedata.zbuffer = zbuffer
 
     numBlocks = canvasWBlocks * canvasHBlocks;
     blockMaxZ = new Int32Array(numBlocks);
